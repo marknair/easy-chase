@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci788pjn11lhf"]
+
+[ext_resource type="SpriteFrames" uid="uid://c84cj8v6f3iwj" path="res://enemy_animation.tres" id="1_6bpj1"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_pnsn3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25m4e"]
+size = Vector2(205, 230)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tv180"]
+size = Vector2(393, 410)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_pnsn3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+scale = Vector2(0.317778, 0.317778)
+sprite_frames = ExtResource("1_6bpj1")
+animation = &"run"
+frame = 6
+frame_progress = 0.229726
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, 17)
+shape = SubResource("RectangleShape2D_25m4e")
+
+[node name="DetectionRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
+position = Vector2(-11.5, 22)
+shape = SubResource("RectangleShape2D_tv180")
+
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
