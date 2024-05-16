@@ -7,6 +7,9 @@
 
 [node name="Player" parent="." instance=ExtResource("1_qgu72")]
 position = Vector2(69, 95)
+speed = 220
 
 [node name="Enemy" parent="." instance=ExtResource("3_pim1o")]
 position = Vector2(815, 296)
+collision_layer = 2
+collision_mask = 2
