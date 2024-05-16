@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+# To see the collision shapes, turn them on with
+# Debug -> Visible Collision Shapes
+
 @export var speed = 150
 var player = null
 
